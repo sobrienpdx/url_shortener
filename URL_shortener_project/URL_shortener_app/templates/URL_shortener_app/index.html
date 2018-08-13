@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URL shortener</title>
+  {% load static %}
+  <!-- <link rel="stylesheet" type="text/css" href="{%static 'toDoApp/style.css' %}"/> -->
+</head>
+
+<body>
+  <div id="app">
+    <h1>Enter a url you would like to shorten:</h1>
+
+    <div class="holder">
+
+      <form action="{% url 'URL_shortener_app:shorten_URL'  %}" method="post">
+        {% csrf_token%}
+        <input type="text" name="to_shorten">
+        <button type="submit">+</button>
+      </form>
+
+
+      <form action="{% url 'URL_shortener_app:index'  %}" method="get">
+        <ul>
+          {% for item in shortcut_list %}
+          <li>
+            <p>{{ item.shortcut }}: {{item.id}},  {{item.original_url }},   {{ item.created_date }}</p>
+          </li>
+          {% endfor %}
+      </form>
+
+
+
+      </ul>
+    </div>
+  </div>
+</body>
+<html>
