@@ -15,17 +15,17 @@
 
       <form action="{% url 'URL_shortener_app:shorten_URL'  %}" method="post">
         {% csrf_token%}
-        <input type="text" name="to_shorten">
-        <input type="text" name="shortcut">
-        <button type="submit">+</button>
+        <p>Original url: <input type="text" name="to_shorten"></p>
+        <p>Shortcut you want:<input type="text" name="shortcut"></p>
+        <button type="submit">Submit</button>
       </form>
 
-
       <form action="{% url 'URL_shortener_app:index'  %}" method="get">
+        <h2>Stored urls:</h2>
         <ul>
           {% for item in shortcut_list %}
           <li>
-            <p>{{ item.shortcut }}: {{item.id}},  {{item.original_url }},   {{ item.created_date }}</p>
+            <p><a href="{{item.original_url}}">{{ item.shortcut }}</a>: {{item.id}},  {{item.original_url }},   {{ item.created_date }}</p>
           </li>
           {% endfor %}
       </form>
