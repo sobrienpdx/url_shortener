@@ -10,10 +10,8 @@ def test(request):
 def shorten_URL(request):
     if request.method == 'POST':
         text = request.POST['to_shorten']
-        # new_to_do = ToDo(to_do_text=text)
-        # new_to_do.save()
-        Short_Cut(original_url=text).save()
-        # print(request.POST)
+        shortcut = request.POST['shortcut']
+        Short_Cut(original_url=text, shortcut=shortcut).save()
     return HttpResponseRedirect(reverse('URL_shortener_app:index'))
 
 # def shorten_URL(request):

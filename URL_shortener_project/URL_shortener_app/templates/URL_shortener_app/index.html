@@ -16,6 +16,7 @@
       <form action="{% url 'URL_shortener_app:shorten_URL'  %}" method="post">
         {% csrf_token%}
         <input type="text" name="to_shorten">
+        <input type="text" name="shortcut">
         <button type="submit">+</button>
       </form>
 
