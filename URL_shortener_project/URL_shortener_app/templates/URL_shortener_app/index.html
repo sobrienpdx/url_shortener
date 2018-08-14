@@ -15,12 +15,14 @@
 
       <form action="{% url 'URL_shortener_app:shorten_URL'  %}" method="post">
         {% csrf_token%}
-        <p>Original url: <input type="text" name="to_shorten"></p>
-        <p>Shortcut you want:<input type="text" name="shortcut"></p>
+        <p>Enter a url to shorten: <input type="text" name="to_shorten"></p>
         <button type="submit">Submit</button>
+        <h1> {{shortcut}}</h1>
+        <h2> Your new url for {{url}} is: thisSite + {{shortcut}}. To access your site directly from your browser, enter "thisSite{{shortcut}}"" into your search bar.</h2>
+        <!-- <p>Shortcut you want:<input type="text" name="shortcut"></p> -->
       </form>
 
-      <form action="{% url 'URL_shortener_app:index'  %}" method="get">
+      <!-- <form action="{% url 'URL_shortener_app:index'  %}" method="get">
         <h2>Stored urls:</h2>
         <ul>
           {% for item in shortcut_list %}
@@ -28,7 +30,18 @@
             <p><a href="{{item.original_url}}">{{ item.shortcut }}</a>: {{item.id}},  {{item.original_url }},   {{ item.created_date }}</p>
           </li>
           {% endfor %}
-      </form>
+      </form> -->
+
+<!--
+      <form action="{% url 'URL_shortener_app:shorten_URL'  %}" method="get">
+        <h2>New URL:</h2>
+        <ul>
+          {% for item in shortcut_list %}
+          <li>
+            <p><a href="{{item.original_url}}">{{ item.shortcut }}</a>: {{item.id}},  {{item.original_url }},   {{ item.created_date }}</p>
+          </li>
+          {% endfor %}
+      </form> -->
 
 
 
