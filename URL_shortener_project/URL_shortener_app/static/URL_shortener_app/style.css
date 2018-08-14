@@ -1,0 +1,10 @@
+#dino {
+  background-image: url("dino_on_bike.gif");
+  width: 90vw;
+  height: 40vw;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+* {
+  color: purple;
+}
