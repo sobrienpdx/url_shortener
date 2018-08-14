@@ -34,7 +34,7 @@ def shorten_URL(request):
             print("that url does exist in the database!")
             go = get_object_or_404(Short_Cut, original_url=url)
             # return HttpResponse(f'the new url for {url} is localhost800{go.shortcut}')
-            context = {'shortcut': go, 'url': url}
+            context = {'shortcut': go, 'url': url, 'message': f'Your new url for {url} is: localhost:8000/ + {go}. To access your site directly from your browser, enter "localhost:8000/{go}"" into your search bar.'}
             return render(request, 'URL_shortener_app/index.html', context)
         print("it wasn't in the data base")
         try:
@@ -46,7 +46,7 @@ def shorten_URL(request):
                     value = "".join(random.choice(chars) for _ in range(5))
                     if value not in Short_Cut.objects.all():
                         Short_Cut(original_url=url, shortcut=value).save()
-                        context = {'shortcut': value, 'url': url}
+                        context = {'shortcut': value, 'url': url, 'message': f'Your new url for {url} is: localhost:8000/ + {value}. To access your site directly from your browser, enter "localhost:8000/{value}"" into your search bar.'}
                         # return HttpResponse(f'the new url for {url} is localhost800{value}')
                         return render(request, 'URL_shortener_app/index.html', context)
             else:

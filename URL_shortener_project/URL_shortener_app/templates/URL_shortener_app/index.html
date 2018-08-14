@@ -17,8 +17,10 @@
         {% csrf_token%}
         <p>Enter a url to shorten: <input type="text" name="to_shorten"></p>
         <button type="submit">Submit</button>
-        <h1> {{shortcut}}</h1>
-        <h2> Your new url for {{url}} is: thisSite + {{shortcut}}. To access your site directly from your browser, enter "thisSite{{shortcut}}"" into your search bar.</h2>
+
+        <h1> <a href="{{url}}">{{shortcut}}</a></h1>
+            <h2> {{message}}</h2>
+        <!-- <h2> Your new url for {{url}} is: thisSite + {{shortcut}}. To access your site directly from your browser, enter "thisSite{{shortcut}}"" into your search bar.</h2> -->
         <!-- <p>Shortcut you want:<input type="text" name="shortcut"></p> -->
       </form>
 
