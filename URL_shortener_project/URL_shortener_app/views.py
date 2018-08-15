@@ -54,3 +54,5 @@ def shorten_URL(request):
         except:
             return redirect('URL_shortener_app:you_lose_dinosaur')
             # return HttpResponse("that didn't work! Are you sure your url was correct?")
+    else:
+        return redirect('URL_shortener_app:index')
